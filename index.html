@@ -1,0 +1,1198 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L'Avalanche Foodtruck, food truck savoyard à Chambéry</title>
+<meta name="description" content="Le food truck savoyard d'Élodie : sandwich à la raclette le jeudi midi place Pergaud, à La Motte-Servolex. Privatisation de 30 à 180 personnes.">
+<meta name="theme-color" content="#F5C518">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="L'Avalanche Foodtruck, food truck savoyard à Chambéry">
+<meta property="og:description" content="Sandwich à la raclette le jeudi midi place Pergaud. Mariages, anniversaires, vins d'honneur : le camion d'Élodie vient chez vous, de 30 à 180 invités.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23261C14'/%3E%3Cpath fill='%23F5C518' d='M0 0h64v20h-6c-2 0-3 1-3 3v9a4 4 0 0 1-8 0V23c0-2-1-3-3-3h-6c-2 0-3 1-3 3v17a5 5 0 0 1-10 0V23c0-2-1-3-3-3H0z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@1&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "L'Avalanche Foodtruck",
+  "description": "Food truck de spécialités savoyardes : sandwich à la raclette, diots, charcuterie. Privatisation pour événements de 30 à 180 personnes.",
+  "servesCuisine": "Savoyarde",
+  "telephone": "+33623242613",
+  "email": "avalanche.elodie@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Pl. Pergaud",
+    "postalCode": "73290",
+    "addressLocality": "La Motte-Servolex",
+    "addressCountry": "FR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 45.5971078, "longitude": 5.8762936 },
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJyw17w-0Ji0cRZpKwAtiNdow",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Thursday", "opens": "11:30", "closes": "14:00" }
+  ],
+  "sameAs": ["https://www.facebook.com/foodtruck.avalanche/"]
+}
+</script>
+<style>
+/* ==========================================================================
+   L'Avalanche — design decisions
+   Palette  : lifted straight from the truck. White body + raclette-yellow
+              livery with melted-cheese drips (photo-06) -> --brand #F5C518.
+              Warm cream ground from the tablecloths of the buffet photos,
+              roasted-crust brown for ink, beetroot / Savoie-flag red as the
+              single accent (verrines in photo-03/05, flag sticker on truck).
+   Type     : Bricolage Grotesque (400/600/800) — chunky, warm, hand-painted
+              sign energy for display + body. Instrument Serif italic as the
+              editorial counter-voice for quotes and the "régalés" moment.
+   Hero     : typographic poster on a full-bleed yellow band that ends in a
+              drawn cheese-drip edge (the truck livery), with the real truck
+              photo framed in white like the camion itself + a Savoie sticker.
+   Rhythm   : yellow poster -> cream proof (one oversized word) -> chalkboard
+              menu -> dark events block with buffet gallery -> cream hours/map
+              -> yellow contact dripping into a dark footer. Book-ended livery.
+   ========================================================================== */
+:root {
+  --bg: #FBF6EC;
+  --surface: #FFFFFF;
+  --surface-2: #F3EADA;
+  --ink: #261C14;
+  --ink-soft: #5C4F42;
+  --brand: #F5C518;
+  --brand-ink: #261C14;
+  --accent: #B3263E;
+  --line: #E6DAC6;
+  --night-ink: #F6EEDF;
+  --night-soft: #CDBFAA;
+  --ok: #2E7D4F;
+
+  --font-sans: "Bricolage Grotesque", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --step--1: clamp(0.875rem, 0.85rem + 0.12vw, 0.95rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.45vw, 1.45rem);
+  --step-2: clamp(1.44rem, 1.25rem + 0.9vw, 1.95rem);
+  --step-3: clamp(1.75rem, 1.4rem + 1.6vw, 2.65rem);
+  --step-4: clamp(2.15rem, 1.6rem + 2.8vw, 3.9rem);
+  --step-5: clamp(2.75rem, 1.6rem + 4.4vw, 5.25rem);
+
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px; --space-5: 24px;
+  --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
+  --section: clamp(56px, 10vw, 128px);
+  --gutter: clamp(16px, 5vw, 40px);
+  --header-h: 64px;
+
+  --r-sm: 12px;
+  --r-lg: 24px;
+  --r-pill: 999px;
+
+  --shadow-1: 0 1px 2px rgb(38 28 20 / .06), 0 2px 8px rgb(38 28 20 / .06);
+  --shadow-2: 0 2px 4px rgb(38 28 20 / .05), 0 12px 28px rgb(38 28 20 / .12);
+  --shadow-3: 0 4px 10px rgb(38 28 20 / .08), 0 28px 56px -12px rgb(38 28 20 / .32);
+
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --drip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 64'%3E%3Cpath fill='%23F5C518' d='M0 0V12H7C9.5 12 12 14.5 12 17V35A7 7 0 0 0 26 35V17C26 14.5 28.5 12 31 12H47C49.5 12 52 14.5 52 17V23A4 4 0 0 0 60 23V17C60 14.5 62.5 12 65 12H83C85.5 12 88 14.5 88 17V48A10 10 0 0 0 108 48V17C108 14.5 110.5 12 113 12H135C137.5 12 140 14.5 140 17V29A5 5 0 0 0 150 29V17C150 14.5 152.5 12 155 12H173C175.5 12 178 14.5 178 17V40A8 8 0 0 0 194 40V17C194 14.5 196.5 12 199 12H217C219.5 12 222 14.5 222 17V22A4 4 0 0 0 230 22V17C230 14.5 232.5 12 235 12H249C251.5 12 254 14.5 254 17V53A11 11 0 0 0 276 53V17C276 14.5 278.5 12 281 12H307C309.5 12 312 14.5 312 17V26A5 5 0 0 0 322 26V17C322 14.5 324.5 12 327 12H343C345.5 12 348 14.5 348 17V37A7 7 0 0 0 362 37V17C362 14.5 364.5 12 367 12H389C391.5 12 394 14.5 394 17V45A9 9 0 0 0 412 45V17C412 14.5 414.5 12 417 12H435C437.5 12 440 14.5 440 17V24A4 4 0 0 0 448 24V17C448 14.5 450.5 12 453 12H480V0Z'/%3E%3C/svg%3E");
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1.5px; }
+h1, h2, h3 { margin: 0; line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; font-weight: 800; }
+p { margin: 0; text-wrap: pretty; }
+ul, ol, dl, dd, figure, blockquote { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+address { font-style: normal; }
+[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip {
+  position: absolute; left: var(--space-4); top: var(--space-2); z-index: 100;
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-5);
+  background: var(--ink); color: var(--night-ink); border-radius: var(--r-pill); font-weight: 600;
+  transform: translateY(-160%); transition: transform .2s var(--ease);
+}
+.skip:focus { transform: none; }
+
+.container { width: min(100% - 2 * var(--gutter), 1200px); margin-inline: auto; }
+.section { padding-block: var(--section); }
+.i { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+.eyebrow {
+  display: block; font-size: var(--step--1); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; line-height: 1.4;
+}
+.eyebrow::before { content: ""; display: inline-block; vertical-align: middle; width: 22px; height: 2px; margin: -2px var(--space-2) 0 0; background: currentColor; }
+@media (max-width: 359px) { .eyebrow { letter-spacing: .08em; } }
+.serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: 52px; padding: 0 var(--space-5); border-radius: var(--r-pill);
+  font: 600 var(--step-0)/1.1 var(--font-sans); text-decoration: none; text-align: center;
+  border: 2px solid transparent; cursor: pointer;
+  transition: transform .25s var(--ease), background-color .25s var(--ease), color .25s var(--ease), box-shadow .25s var(--ease);
+}
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn-ink { background: var(--ink); color: var(--night-ink); box-shadow: var(--shadow-1); }
+.btn-ink:hover { background: #3A2B1F; }
+.btn-line { border-color: currentColor; color: var(--ink); }
+.btn-line:hover { background: rgb(38 28 20 / .06); }
+.btn-brand { background: var(--brand); color: var(--brand-ink); }
+.btn-brand:hover { background: #FFD43B; }
+.btn-line-light { border-color: rgb(246 238 223 / .45); color: var(--night-ink); }
+.btn-line-light:hover { border-color: var(--night-ink); }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px;
+  font-weight: 600; text-decoration: underline; text-decoration-color: rgb(38 28 20 / .3);
+}
+.link-arrow:hover { text-decoration-color: currentColor; }
+.link-arrow .i { width: 18px; height: 18px; transition: transform .25s var(--ease); }
+.link-arrow:hover .i { transform: translate(2px, -2px); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--brand);
+  transition: background-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.site-header.is-stuck { background: var(--bg); box-shadow: 0 1px 0 var(--line), var(--shadow-1); }
+.header-inner { display: flex; align-items: center; gap: var(--space-4); min-height: var(--header-h); }
+.wordmark {
+  display: inline-flex; align-items: center; gap: var(--space-3); min-height: 44px;
+  text-decoration: none; font-weight: 800; font-size: 1.3rem; letter-spacing: -0.03em; margin-right: auto;
+}
+.wordmark svg { width: 36px; height: 36px; flex: none; }
+.menu-toggle {
+  display: inline-grid; place-items: center; width: 48px; height: 48px; margin-right: -8px;
+  border: 0; background: transparent; color: var(--ink); border-radius: var(--r-sm); cursor: pointer;
+}
+.menu-toggle .i { width: 26px; height: 26px; }
+.menu-toggle .i-close-ico { display: none; }
+.menu-toggle[aria-expanded="true"] .i-menu-ico { display: none; }
+.menu-toggle[aria-expanded="true"] .i-close-ico { display: block; }
+.header-cta { display: none; min-height: 44px; padding: 0 var(--space-4); font-size: var(--step--1); }
+
+.site-nav {
+  position: fixed; inset: var(--header-h) 0 0 0; z-index: 40;
+  background: var(--bg); padding: var(--space-6) var(--gutter) calc(var(--space-7) + env(safe-area-inset-bottom));
+  display: flex; flex-direction: column; gap: var(--space-6); overflow-y: auto;
+  visibility: hidden; opacity: 0; transform: translateY(-8px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s linear .3s;
+}
+.site-nav.is-open { visibility: visible; opacity: 1; transform: none; transition: opacity .3s var(--ease), transform .3s var(--ease), visibility 0s; }
+.site-nav ul { display: grid; }
+.site-nav li + li { border-top: 1px solid var(--line); }
+.site-nav ul a {
+  display: flex; align-items: center; justify-content: space-between; min-height: 64px;
+  font-size: var(--step-3); font-weight: 800; letter-spacing: -0.02em; text-decoration: none;
+}
+.site-nav ul a .i { color: var(--ink-soft); }
+.nav-extra { display: grid; gap: var(--space-3); }
+.nav-extra p { color: var(--ink-soft); }
+
+/* ---------- Hero ---------- */
+.hero-band { background: var(--brand); color: var(--brand-ink); padding-top: var(--space-5); }
+.hero-grid { display: grid; gap: var(--space-5); }
+.hero-head { display: grid; justify-items: start; gap: var(--space-4); }
+.hero-copy { display: grid; justify-items: start; gap: var(--space-5); }
+.hero h1 { font-size: clamp(2.75rem, 1.2rem + 6.6vw, 6.5rem); line-height: 1.0; letter-spacing: -0.04em; }
+.hero h1 .serif { display: block; font-size: 1.04em; line-height: 1.02; letter-spacing: -0.02em; }
+.hero-sub { font-size: clamp(1.1rem, 1rem + .5vw, 1.4rem); line-height: 1.45; max-width: 36ch; }
+.hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); }
+.rating-chip {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 var(--space-4) 0 var(--space-3);
+  background: var(--surface); border-radius: var(--r-pill); text-decoration: none; font-weight: 600; font-size: var(--step--1);
+  box-shadow: var(--shadow-1); transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.rating-chip:hover { transform: translateY(-1px); box-shadow: var(--shadow-2); }
+.rating-chip .stars { color: var(--ink); }
+.rating-chip strong { font-weight: 800; font-size: var(--step-0); margin-left: 2px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); width: 100%; }
+.hero-ctas .btn { flex: 1 1 200px; }
+.hero-ctas .btn-line { border-color: var(--ink); }
+
+.status {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-weight: 600; font-size: var(--step--1); line-height: 1.3;
+}
+.status::before {
+  content: ""; width: 10px; height: 10px; border-radius: 50%; flex: none;
+  background: var(--accent); box-shadow: 0 0 0 3px rgb(179 38 62 / .18);
+}
+.status.is-open::before { background: var(--ok); box-shadow: 0 0 0 3px rgb(46 125 79 / .2); animation: pulse 2.4s var(--ease) infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 7px rgb(46 125 79 / 0); } }
+
+.hero-media { position: relative; margin-top: var(--space-6); margin-bottom: var(--space-2); }
+.hero-frame {
+  background: var(--surface); padding: 10px; border-radius: var(--r-lg); box-shadow: var(--shadow-3);
+  transform: rotate(-1.2deg);
+}
+.hero-frame img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 18% 50%; border-radius: calc(var(--r-lg) - 8px); }
+.hero-frame figcaption { padding: var(--space-3) var(--space-2) var(--space-1); font-size: var(--step--1); color: var(--ink-soft); }
+.sticker {
+  position: absolute; right: -6px; top: -38px; width: 104px; height: 104px;
+  filter: drop-shadow(0 6px 10px rgb(38 28 20 / .25));
+}
+.sticker .ring { transform-origin: 60px 60px; animation: spin 28s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.drip { height: 64px; background: var(--drip) repeat-x 0 0 / 480px 64px; }
+.hero .drip { margin-top: -1px; }
+
+.hero-head > *, .hero-copy > * { animation: rise .7s var(--ease) both; }
+.hero-head > :nth-child(2) { animation-delay: .06s; }
+.hero-copy > :nth-child(1) { animation-delay: .14s; }
+.hero-copy > :nth-child(2) { animation-delay: .2s; }
+.hero-copy > :nth-child(3) { animation-delay: .26s; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+
+/* ---------- Proof ---------- */
+.proof { padding-top: calc(var(--section) - 40px); }
+.proof-head { display: grid; gap: var(--space-7); align-items: end; }
+.score { display: grid; gap: var(--space-2); justify-items: start; }
+.score-num { display: flex; align-items: baseline; gap: var(--space-2); font-weight: 800; line-height: .85; letter-spacing: -0.05em; font-size: clamp(5.5rem, 3rem + 12vw, 11rem); }
+.score-num small { font-size: .26em; letter-spacing: 0; color: var(--ink-soft); font-weight: 600; }
+.stars { display: inline-flex; gap: 2px; color: #C99A00; }
+.stars svg { width: 18px; height: 18px; }
+.score .stars svg { width: 26px; height: 26px; }
+.score-count { font-size: var(--step-1); font-weight: 600; }
+.proof-title h2 { font-size: var(--step-3); font-weight: 600; letter-spacing: -0.02em; }
+.mega {
+  display: block; font-family: var(--font-serif); font-style: italic; font-weight: 400;
+  font-size: clamp(4.2rem, 2rem + 11vw, 10.5rem); line-height: .9; letter-spacing: -0.03em; color: var(--accent);
+  margin-top: var(--space-2);
+}
+.proof-title p { margin-top: var(--space-5); color: var(--ink-soft); max-width: 52ch; }
+
+.rail-wrap { margin-top: var(--space-8); }
+.rail {
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 380px); gap: var(--space-4);
+  overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  margin-inline: calc(var(--gutter) * -1); padding: var(--space-2) var(--gutter) var(--space-5);
+  scroll-padding-inline: var(--gutter); scrollbar-width: none;
+}
+.rail::-webkit-scrollbar { display: none; }
+.review {
+  scroll-snap-align: start; display: flex; flex-direction: column; gap: var(--space-4);
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: var(--space-5); box-shadow: var(--shadow-1);
+}
+.review-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.tag {
+  display: inline-flex; align-items: center; min-height: 28px; padding: 0 var(--space-3); border-radius: var(--r-pill);
+  background: var(--surface-2); font-size: var(--step--1); font-weight: 600;
+}
+.review blockquote { flex: 1; }
+.review blockquote p { line-height: 1.55; }
+.review-by { display: flex; flex-wrap: wrap; gap: 0 var(--space-2); font-size: var(--step--1); color: var(--ink-soft); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+.review-by strong { color: var(--ink); font-weight: 600; }
+.rail-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.rail-btns { display: none; gap: var(--space-2); }
+.rail-btn {
+  display: inline-grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+  border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer;
+  transition: background-color .25s var(--ease), color .25s var(--ease), opacity .25s var(--ease);
+}
+.rail-btn:hover:not(:disabled) { background: var(--ink); color: var(--night-ink); }
+.rail-btn:disabled { opacity: .3; cursor: default; }
+
+/* ---------- Carte ---------- */
+.carte { background: var(--surface); border-block: 1px solid var(--line); }
+.carte-grid { display: grid; gap: var(--space-7); align-items: center; }
+.carte-intro { display: grid; gap: var(--space-5); justify-items: start; }
+.carte-intro h2 { font-size: var(--step-4); }
+.carte-intro p { max-width: 46ch; color: var(--ink-soft); }
+.carte-intro p strong { color: var(--ink); font-weight: 600; }
+.ardoise {
+  position: relative; color: #F1EADB; border-radius: var(--r-lg); padding: var(--space-6) var(--space-5);
+  background:
+    radial-gradient(120% 80% at 15% 10%, rgb(255 255 255 / .07), transparent 60%),
+    radial-gradient(90% 70% at 90% 100%, rgb(255 255 255 / .05), transparent 60%),
+    #2A2B27;
+  box-shadow: inset 0 0 0 10px #4A3826, inset 0 0 0 12px #2F2318, var(--shadow-3);
+  padding: calc(var(--space-6) + 10px) calc(var(--space-5) + 10px);
+}
+.ardoise-title { font-family: var(--font-serif); font-style: italic; font-size: var(--step-3); line-height: 1.1; color: var(--brand); }
+.ardoise ul { margin-top: var(--space-5); display: grid; }
+.ardoise li { padding-block: var(--space-4); border-top: 1px dashed rgb(241 234 219 / .28); display: grid; gap: var(--space-1); }
+.ardoise h3 { font-size: var(--step-2); font-weight: 800; letter-spacing: -0.015em; line-height: 1.1; }
+.ardoise li p { color: #D8CFBE; }
+.ardoise .sig {
+  justify-self: start; margin-bottom: var(--space-1); display: inline-flex; align-items: center; min-height: 26px; padding: 0 var(--space-3);
+  border-radius: var(--r-pill); background: var(--brand); color: var(--brand-ink); font-size: var(--step--1); font-weight: 600;
+}
+.ardoise-foot { padding-top: var(--space-4); border-top: 1px dashed rgb(241 234 219 / .28); font-size: var(--step--1); color: #D8CFBE; }
+
+/* ---------- Events ---------- */
+.events { background: var(--ink); color: var(--night-ink); position: relative; overflow: hidden; }
+.events .eyebrow { color: var(--brand); }
+.events-head { display: grid; gap: var(--space-5); }
+.events-head h2 { font-size: var(--step-5); letter-spacing: -0.035em; line-height: 1; }
+.events-head h2 .serif { color: var(--brand); display: block; }
+.events-head .lead { font-size: var(--step-1); line-height: 1.5; color: var(--night-soft); max-width: 50ch; }
+.events-grid { display: grid; gap: var(--space-5); margin-top: var(--space-8); }
+.price-card {
+  background: var(--brand); color: var(--brand-ink); border-radius: var(--r-lg); padding: var(--space-6);
+  display: grid; align-content: start; gap: var(--space-1);
+}
+.price-card .from { font-weight: 600; font-size: var(--step-0); }
+.price { font-size: clamp(4.5rem, 3rem + 7vw, 7.5rem); font-weight: 800; letter-spacing: -0.05em; line-height: .9; }
+.price-card .per { font-size: var(--step-1); font-weight: 600; }
+.price-card .note { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1.5px solid rgb(38 28 20 / .2); font-size: var(--step--1); line-height: 1.5; }
+.facts { display: grid; gap: 0; border-top: 1px solid rgb(246 238 223 / .16); }
+.facts > div { display: grid; grid-template-columns: 40px 1fr; gap: var(--space-1) var(--space-4); padding-block: var(--space-5); border-bottom: 1px solid rgb(246 238 223 / .16); }
+.facts .i { grid-row: span 2; width: 28px; height: 28px; color: var(--brand); margin-top: 2px; }
+.facts dt { font-size: var(--step--1); letter-spacing: .1em; text-transform: uppercase; color: var(--night-soft); font-weight: 600; }
+.facts dd { font-size: var(--step-1); font-weight: 600; line-height: 1.3; }
+
+.steps { margin-top: var(--space-8); display: grid; gap: var(--space-5); counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 3rem 1fr; gap: var(--space-3); align-items: baseline; }
+.steps li::before {
+  counter-increment: step; content: "0" counter(step);
+  font-family: var(--font-serif); font-style: italic; font-size: var(--step-3); color: var(--brand); line-height: 1;
+}
+.steps h3 { font-size: var(--step-1); font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
+.steps p { color: var(--night-soft); margin-top: var(--space-1); }
+
+.pull { margin-top: var(--space-9); display: grid; gap: var(--space-4); max-width: 980px; }
+.pull blockquote p {
+  font-family: var(--font-serif); font-style: italic; font-size: var(--step-4); line-height: 1.08; letter-spacing: -0.015em;
+}
+.pull blockquote p::before { content: "«\00a0"; color: var(--brand); }
+.pull blockquote p::after { content: "\00a0»"; color: var(--brand); }
+.pull figcaption { color: var(--night-soft); font-size: var(--step--1); display: flex; align-items: center; gap: var(--space-3); }
+.pull figcaption .stars { color: var(--brand); }
+
+.gallery-head { margin-top: var(--space-9); display: flex; align-items: end; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.gallery-head h3 { font-size: var(--step-3); }
+.gallery-head p { color: var(--night-soft); font-size: var(--step--1); }
+.gallery { margin-top: var(--space-5); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.gallery li:first-child { grid-column: 1 / -1; }
+.gallery li { position: relative; }
+.gallery li::after {
+  content: ""; position: absolute; right: 10px; bottom: 10px; width: 36px; height: 36px; border-radius: 50%; pointer-events: none;
+  background: rgb(38 28 20 / .55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F6EEDF' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center / 16px no-repeat;
+}
+.g-btn {
+  display: block; width: 100%; padding: 0; border: 0; background: #3A2B1F; border-radius: var(--r-sm); overflow: hidden; cursor: zoom-in;
+}
+.g-btn img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; transition: transform .7s var(--ease); }
+.gallery li:first-child .g-btn img { aspect-ratio: 4 / 3; object-position: 50% 60%; }
+.g-btn:hover img { transform: scale(1.04); }
+.events-cta { margin-top: var(--space-8); display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.events-cta .btn { flex: 1 1 240px; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  width: 100%; max-width: 100%; height: 100%; max-height: 100%; margin: 0; padding: 0; border: 0;
+  background: transparent; color: var(--night-ink);
+}
+.lightbox::backdrop { background: rgb(20 14 10 / .92); }
+.lightbox[open] { display: grid; place-items: center; animation: fade .3s var(--ease); }
+@keyframes fade { from { opacity: 0; } }
+.lb-figure { display: grid; justify-items: center; gap: var(--space-3); padding: var(--space-8) var(--space-4) var(--space-9); }
+.lb-figure img { max-width: min(92vw, 900px); max-height: 74dvh; width: auto; height: auto; border-radius: var(--r-sm); }
+.lb-figure figcaption { font-size: var(--step--1); color: var(--night-soft); text-align: center; max-width: 60ch; }
+.lb-btn {
+  position: fixed; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+  border: 0; background: rgb(246 238 223 / .14); color: var(--night-ink); cursor: pointer;
+  transition: background-color .25s var(--ease);
+}
+.lb-btn:hover { background: rgb(246 238 223 / .26); }
+.lb-close { top: max(var(--space-4), env(safe-area-inset-top)); right: var(--space-4); }
+.lb-prev { bottom: calc(var(--space-5) + env(safe-area-inset-bottom)); left: calc(50% - 64px); }
+.lb-next { bottom: calc(var(--space-5) + env(safe-area-inset-bottom)); right: calc(50% - 64px); }
+
+/* ---------- Hours ---------- */
+.hours-grid { display: grid; gap: var(--space-8); }
+.hours-info { display: grid; gap: var(--space-5); align-content: start; justify-items: start; }
+.hours-info h2 { font-size: var(--step-5); letter-spacing: -0.035em; line-height: 1; }
+.hours-info h2 .serif { display: block; }
+.status-lg {
+  min-height: 44px; padding: 0 var(--space-4); border-radius: var(--r-pill);
+  background: var(--surface); border: 1px solid var(--line); font-size: var(--step-0);
+}
+.hours-table { width: 100%; border-collapse: collapse; font-size: var(--step-0); }
+.hours-table th, .hours-table td { padding: var(--space-3) var(--space-3); text-align: left; border-bottom: 1px solid var(--line); }
+.hours-table th { font-weight: 600; }
+.hours-table td { text-align: right; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.hours-table tr.is-open-day td { color: var(--ink); font-weight: 600; }
+.hours-table tr.is-today { background: var(--brand); }
+.hours-table tr.is-today th, .hours-table tr.is-today td { color: var(--brand-ink); font-weight: 800; border-bottom-color: transparent; }
+.hours-table tr.is-today th { border-radius: var(--r-sm) 0 0 var(--r-sm); }
+.hours-table tr.is-today td { border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.today-tag { display: inline-block; margin-left: var(--space-2); font-size: .78em; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.access { display: grid; gap: var(--space-2); }
+.access li { display: flex; align-items: center; gap: var(--space-3); color: var(--ink-soft); }
+.access .i { color: var(--ink); }
+
+.map-col { display: grid; gap: var(--space-5); align-content: start; }
+.map {
+  position: relative; border-radius: var(--r-lg); overflow: hidden; background: var(--surface-2);
+  aspect-ratio: 4 / 3.4; box-shadow: var(--shadow-2); border: 1px solid var(--line);
+}
+.map-fallback { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: var(--space-5); color: var(--ink-soft); }
+.map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.map-meta { display: grid; gap: var(--space-4); }
+.map-meta address { font-size: var(--step-1); font-weight: 600; line-height: 1.35; display: flex; gap: var(--space-3); }
+.map-meta address .i { margin-top: 3px; }
+.btn-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+
+/* ---------- Contact ---------- */
+.contact { background: var(--brand); color: var(--brand-ink); padding-bottom: var(--space-8); }
+.contact-grid { display: grid; gap: var(--space-8); }
+.contact-main { display: grid; gap: var(--space-5); justify-items: start; align-content: start; }
+.contact-main h2 { font-size: var(--step-5); letter-spacing: -0.035em; line-height: 1; }
+.contact-main > p { max-width: 42ch; font-size: var(--step-1); line-height: 1.45; }
+.big-phone {
+  display: inline-flex; align-items: center; gap: var(--space-3); min-height: 56px;
+  font-size: clamp(2rem, 1.2rem + 4vw, 3.6rem); font-weight: 800; letter-spacing: -0.03em; text-decoration: none;
+  font-variant-numeric: tabular-nums; border-bottom: 4px solid var(--ink); line-height: 1.1; padding-bottom: 2px;
+}
+.big-phone .i { width: .8em; height: .8em; stroke-width: 2; }
+.contact-links { display: grid; gap: var(--space-2); width: 100%; }
+.contact-links a {
+  display: flex; align-items: center; gap: var(--space-3); min-height: 48px; text-decoration: none; font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.contact-links a:hover span { text-decoration: underline; }
+.composer {
+  background: var(--surface); border-radius: var(--r-lg); padding: var(--space-6) var(--space-5); box-shadow: var(--shadow-3);
+  display: grid; gap: var(--space-4); align-content: start;
+}
+.composer h3 { font-size: var(--step-2); }
+.composer > p { color: var(--ink-soft); font-size: var(--step--1); }
+.field { display: grid; gap: var(--space-1); }
+.field label { font-size: var(--step--1); font-weight: 600; }
+.field .opt { font-weight: 400; color: var(--ink-soft); }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 48px; padding: var(--space-3) var(--space-4); border: 1.5px solid var(--line); border-radius: var(--r-sm);
+  background: var(--bg); color: var(--ink); font: 400 1rem/1.4 var(--font-sans);
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 22px) 52%, calc(100% - 16px) 52%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: var(--space-7); }
+.field textarea { min-height: 96px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgb(245 197 24 / .6); }
+.field-row { display: grid; grid-template-columns: 1.25fr 1fr; gap: var(--space-3); align-items: end; }
+.composer-actions { display: grid; gap: var(--space-3); }
+.composer .hint { font-size: var(--step--1); color: var(--ink-soft); }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--ink); color: var(--night-soft); }
+.site-footer .drip { background-color: var(--ink); }
+.footer-inner { display: grid; gap: var(--space-7); padding-block: var(--space-7) var(--space-8); }
+.footer-brand { display: grid; gap: var(--space-3); justify-items: start; }
+.footer-brand .wordmark { color: var(--night-ink); font-size: 1.6rem; }
+.footer-cols { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.footer-cols h3 { font-size: var(--step--1); letter-spacing: .12em; text-transform: uppercase; color: var(--night-ink); font-weight: 600; margin-bottom: var(--space-3); }
+.footer-cols li { padding-block: 3px; }
+.footer-cols a { color: var(--night-ink); text-decoration-color: rgb(246 238 223 / .35); }
+.social { display: flex; gap: var(--space-2); }
+.social a {
+  display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 50%;
+  border: 1.5px solid rgb(246 238 223 / .3); color: var(--night-ink); transition: background-color .25s var(--ease), color .25s var(--ease);
+}
+.social a:hover { background: var(--brand); color: var(--brand-ink); border-color: var(--brand); }
+.footer-base { border-top: 1px solid rgb(246 238 223 / .14); padding-block: var(--space-5); font-size: var(--step--1); display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); justify-content: space-between; }
+
+/* ---------- Mobile action bar ---------- */
+.action-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+  background: rgb(38 28 20 / .96); box-shadow: 0 -8px 24px rgb(38 28 20 / .18);
+}
+.action-bar a {
+  display: flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 52px;
+  border-radius: var(--r-sm); text-decoration: none; font-weight: 600; font-size: 1rem; color: var(--night-ink);
+  background: rgb(246 238 223 / .1);
+}
+.action-bar a:first-child { background: var(--brand); color: var(--brand-ink); }
+.action-bar .i { width: 20px; height: 20px; }
+body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+
+/* ---------- Reveal ---------- */
+.js [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--d, 0s); }
+.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* ---------- ≥ 640 ---------- */
+@media (min-width: 640px) {
+  .hero-ctas { width: auto; }
+  .hero-ctas .btn { flex: 0 0 auto; }
+  .rail-btns { display: flex; }
+  .events-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+  .gallery li:first-child { grid-column: span 2; grid-row: span 2; }
+  .gallery li:first-child .g-btn, .gallery li:first-child .g-btn img { height: 100%; }
+  .gallery li:first-child .g-btn img { aspect-ratio: auto; }
+  .composer-actions { grid-template-columns: 1fr 1fr; }
+  .events-cta .btn { flex: 0 0 auto; }
+  .steps { grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+  .steps li { grid-template-columns: 1fr; gap: var(--space-3); align-items: start; }
+}
+
+/* ---------- ≥ 768 : action bar off, header CTA on ---------- */
+@media (min-width: 768px) {
+  .action-bar { display: none; }
+  body { padding-bottom: 0; }
+  .header-cta { display: inline-flex; }
+  .hero-frame img { aspect-ratio: 16 / 10; }
+}
+
+/* ---------- ≥ 960 ---------- */
+@media (min-width: 960px) {
+  :root { --header-h: 76px; }
+  .wordmark { font-size: 1.45rem; }
+  .menu-toggle { display: none; }
+  .site-nav {
+    position: static; inset: auto; padding: 0; background: none; visibility: visible; opacity: 1; transform: none;
+    flex-direction: row; overflow: visible; transition: none;
+  }
+  .site-nav ul { display: flex; gap: var(--space-1); }
+  .site-nav li + li { border: 0; }
+  .site-nav ul a { min-height: 44px; padding: 0 var(--space-3); font-size: var(--step--1); font-weight: 600; letter-spacing: 0; border-radius: var(--r-pill); }
+  .site-nav ul a:hover { background: rgb(38 28 20 / .08); }
+  .site-nav ul a .i, .nav-extra { display: none; }
+  .header-cta { font-size: var(--step--1); }
+
+  .hero-band { padding-top: var(--space-8); }
+  .hero-grid { grid-template-columns: 6fr 5fr; grid-template-areas: "head head" "copy media"; column-gap: var(--space-8); row-gap: var(--space-6); }
+  .hero-head { grid-area: head; }
+  .hero-copy { grid-area: copy; align-self: start; gap: var(--space-6); }
+  .hero-media { grid-area: media; margin: 0 0 calc(var(--space-7) * -1); position: relative; z-index: 2; }
+  .hero-frame img { aspect-ratio: 16 / 10; }
+  .sticker { width: 128px; height: 128px; top: -56px; right: -24px; }
+
+  .proof-head { grid-template-columns: 5fr 7fr; gap: var(--space-8); }
+  .carte-grid { grid-template-columns: 5fr 6fr; gap: var(--space-9); }
+  .ardoise { padding: calc(var(--space-7) + 10px) calc(var(--space-7) + 10px); transform: rotate(.8deg); }
+
+  .events-grid { grid-template-columns: 5fr 7fr; gap: var(--space-8); }
+  .gallery { grid-template-columns: repeat(5, 1fr); gap: var(--space-4); align-items: start; }
+  .gallery li:first-child { grid-column: auto; grid-row: auto; }
+  .gallery li:first-child .g-btn, .gallery li:first-child .g-btn img { height: auto; }
+  .gallery li:first-child .g-btn img, .g-btn img { aspect-ratio: 2 / 3; object-position: 50% 50%; }
+  .gallery li:nth-child(even) { margin-top: var(--space-8); }
+
+  .hours-grid { grid-template-columns: 5fr 6fr; gap: var(--space-9); align-items: start; }
+  .map { aspect-ratio: 5 / 4.4; }
+  .contact-grid { grid-template-columns: 7fr 5fr; gap: var(--space-9); align-items: start; }
+  .footer-inner { grid-template-columns: 4fr 8fr; }
+}
+
+@media (min-width: 1200px) {
+  .hero-grid { gap: var(--space-9); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto; }
+  .js [data-reveal] { opacity: 1; transform: none; }
+}
+</style>
+<!--sf:preview--><meta name="robots" content="noindex, nofollow"><!--/sf:preview-->
+<!--sf:og--><meta property="og:image" content="https://l-avalanche-foodtruck-chambery.aymenjallouli.dev/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://l-avalanche-foodtruck-chambery.aymenjallouli.dev/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://l-avalanche-foodtruck-chambery.aymenjallouli.dev/og.jpg"><!--/sf:og-->
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-sms" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><path d="M3 11 22 2l-9 19-2-8-8-2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="m12 2.6 2.85 5.95 6.55.8-4.83 4.5 1.24 6.48L12 17.15l-5.81 3.18 1.24-6.48L2.6 9.35l6.55-.8z"/></symbol>
+  <symbol id="i-chair" viewBox="0 0 24 24"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1M5 8l3-3 5.5 3-2.36 3.5M4.24 14.5a5 5 0 0 0 6.88 6M13.76 17.5a5 5 0 0 0-6.88-6"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
+  <symbol id="mono" viewBox="0 0 40 40"><clipPath id="mono-c"><circle cx="20" cy="20" r="18"/></clipPath><circle cx="20" cy="20" r="18" fill="#FFFFFF"/><path clip-path="url(#mono-c)" fill="#F5C518" d="M0 0h40v15h-4c-1.2 0-2 .8-2 2v5a3 3 0 0 1-6 0v-5c0-1.2-.8-2-2-2h-3c-1.2 0-2 .8-2 2v10a3.5 3.5 0 0 1-7 0V17c0-1.2-.8-2-2-2H0z"/><circle cx="20" cy="20" r="18.75" fill="none" stroke="#261C14" stroke-width="2.5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="wordmark" href="#main" aria-label="L'Avalanche, retour en haut de page">
+      <svg aria-hidden="true"><use href="#mono"/></svg>
+      <span>L'Avalanche</span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#avis">Avis <svg class="i" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+        <li><a href="#carte">La carte <svg class="i" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+        <li><a href="#evenements">Événements <svg class="i" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+        <li><a href="#horaires">Horaires et accès <svg class="i" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+        <li><a href="#contact">Contact <svg class="i" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+      </ul>
+      <div class="nav-extra">
+        <p class="status" data-status>Jeudi 11h30 – 14h00 · place Pergaud</p>
+        <a class="btn btn-ink" href="tel:+33623242613"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Appeler Élodie</a>
+      </div>
+    </nav>
+    <a class="btn btn-ink header-cta" href="tel:+33623242613"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>06 23 24 26 13</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">
+      <svg class="i i-menu-ico" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="i i-close-ico" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-band">
+      <div class="container hero-grid">
+        <div class="hero-head">
+          <p class="eyebrow">Food truck savoyard · Chambéry</p>
+          <h1 id="hero-title">Raclette en sandwich, <span class="serif">jeudi midi, place Pergaud.</span></h1>
+        </div>
+        <div class="hero-copy">
+          <p class="hero-sub">Le camion d'Élodie, cuisine savoyarde faite maison depuis 2022. Mariage ou anniversaire&nbsp;: il vient aussi chez vous, de 30 à 180 invités.</p>
+          <div class="hero-meta">
+            <a class="rating-chip" href="https://www.google.com/maps/place/?q=place_id:ChIJyw17w-0Ji0cRZpKwAtiNdow" target="_blank" rel="noopener" aria-label="Note Google : 5,0 sur 5, 26 avis. Voir les avis sur Google">
+              <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg></span><strong>5,0</strong><span>· 26 avis Google</span>
+            </a>
+            <p class="status" data-status>Jeudi 11h30 – 14h00 · place Pergaud</p>
+          </div>
+          <div class="hero-ctas">
+            <a class="btn btn-ink" href="tel:+33623242613"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Appeler Élodie</a>
+            <a class="btn btn-line" href="#evenements">Privatiser le camion</a>
+          </div>
+        </div>
+
+        <figure class="hero-media">
+          <div class="hero-frame">
+            <img src="assets/photos/photo-06.jpg" width="796" height="436" fetchpriority="high"
+                 alt="Le camion L'Avalanche, blanc à coulures jaunes, et ses clients au comptoir sur une place arborée">
+            <figcaption>Le camion, sa livrée jaune et son ardoise.</figcaption>
+          </div>
+          <svg class="sticker" viewBox="0 0 120 120" role="img" aria-label="Cuisine savoyarde faite maison">
+            <circle cx="60" cy="60" r="58" fill="#B3263E"/>
+            <circle cx="60" cy="60" r="31" fill="none" stroke="#FFF8E6" stroke-opacity=".35" stroke-width="1"/>
+            <rect x="54" y="42" width="12" height="36" fill="#FFF8E6"/>
+            <rect x="42" y="54" width="36" height="12" fill="#FFF8E6"/>
+            <g class="ring">
+              <path id="ring-path" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0" fill="none"/>
+              <text fill="#FFF8E6" font-family="Bricolage Grotesque, sans-serif" font-size="11" font-weight="600" letter-spacing="1.6">
+                <textPath href="#ring-path" textLength="272" lengthAdjust="spacing">CUISINE SAVOYARDE · FAITE MAISON ·</textPath>
+              </text>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </div>
+    <div class="drip" aria-hidden="true"></div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="section proof" id="avis" aria-labelledby="avis-title">
+    <div class="container">
+      <div class="proof-head">
+        <div class="score" data-reveal>
+          <p class="eyebrow">Avis Google</p>
+          <p class="score-num" aria-label="Note moyenne 5,0 sur 5">5,0<small>/5</small></p>
+          <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
+          <p class="score-count"><span data-count="26">26</span> avis sur Google</p>
+          <a class="link-arrow" href="https://www.google.com/maps/place/?q=place_id:ChIJyw17w-0Ji0cRZpKwAtiNdow" target="_blank" rel="noopener">Voir les 26 avis sur Google<svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a>
+        </div>
+        <div class="proof-title" data-reveal style="--d:.1s">
+          <h2 id="avis-title">Le mot qui revient dans les avis&nbsp;: <span class="mega">régalés.</span></h2>
+          <p>Vins d'honneur, dîners de mariage, brunchs du dimanche, buffets d'anniversaire, déjeuners au camion. Et presque à chaque fois, Élodie citée par son prénom.</p>
+        </div>
+      </div>
+
+      <div class="rail-wrap">
+        <ul class="rail" id="rail" tabindex="0" aria-label="Avis clients, faites défiler horizontalement">
+          <li class="review" data-reveal>
+            <div class="review-top"><span class="tag">Mariage</span><span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+            <blockquote><p>Nous avons confié à Elodie la mission de réaliser le vin d'honneur et le repas de notre mariage avec des paramètres particuliers comme proposer une alternative végétarienne et utiliser un brasero. Défi relevé haut la main par Elodie de l'Avalanche. Tous nos invités se sont régalés.</p></blockquote>
+            <p class="review-by"><strong>Caroline B.</strong><time datetime="2025-07">juillet 2025</time></p>
+          </li>
+          <li class="review" data-reveal style="--d:.08s">
+            <div class="review-top"><span class="tag">Anniversaire</span><span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+            <blockquote><p>Nous avons fait appel au food truck L'Avalanche pour un buffet d'anniversaire et tout était absolument parfait… Mention spéciale pour les salades super ingénieuses, pleines de saveurs, et les wraps qui ont connu un immense succès.</p></blockquote>
+            <p class="review-by"><strong>Charles N.</strong><time datetime="2026-06">juin 2026</time></p>
+          </li>
+          <li class="review" data-reveal style="--d:.16s">
+            <div class="review-top"><span class="tag">Mariage</span><span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+            <blockquote><p>Nous avions choisi Elodie pour le dîner et le brunch de notre mariage. Nous nous sommes régalés. Elodie est très à l’écoute et donne des conseils précieux pour nous aider à organiser au mieux notre événement.</p></blockquote>
+            <p class="review-by"><strong>Aurore L.</strong><time datetime="2025-04">avril 2025</time></p>
+          </li>
+          <li class="review" data-reveal style="--d:.24s">
+            <div class="review-top"><span class="tag">Anniversaire</span><span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+            <blockquote><p>… Nous avons fait venir ce food truck chez nous pour un anniversaire. Déjà pour l'organisation, Élodie a été hyper réactive, et a même suggéré des supers idées, on a eu du mal à choisir le menu tant les propositions étaient appétissantes…</p></blockquote>
+            <p class="review-by"><strong>Mathilde C.</strong><time datetime="2024-05">mai 2024</time></p>
+          </li>
+          <li class="review">
+            <div class="review-top"><span class="tag">Mariage</span><span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+            <blockquote><p>C'était parfait, une cuisine comme on les aimes, une équipe discrète… Je recommande à 100%, pour des produits frais et tout maison.</p></blockquote>
+            <p class="review-by"><strong>ALLOTECH S.</strong><time datetime="2024-06">juin 2024</time></p>
+          </li>
+          <li class="review">
+            <div class="review-top"><span class="tag">Vin d'honneur</span><span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+            <blockquote><p>Vin d’honneur, dîner ( plat et fromage) et brunch du dimanche: tout était excellent et présenté avec goût.</p></blockquote>
+            <p class="review-by"><strong>isabelle L.</strong><time datetime="2025-04">avril 2025</time></p>
+          </li>
+          <li class="review">
+            <div class="review-top"><span class="tag">Apéro</span><span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+            <blockquote><p>J ai fait appel à elodie pour un apéro diététique mes clients se sont régalé et on gardé la carte</p></blockquote>
+            <p class="review-by"><strong>Aurelien C.</strong><time datetime="2026-06">juin 2026</time></p>
+          </li>
+          <li class="review">
+            <div class="review-top"><span class="tag">Déjeuner au camion</span><span class="stars" role="img" aria-label="5 étoiles sur 5"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></div>
+            <blockquote><p>… C'est un lieu où l'on retrouve des produits frais et locaux, préparés avec soin et passion. De plus, le service est accueillant et chaleureux, ce qui s'ajoute à l'atmosphère conviviale du lieu.</p></blockquote>
+            <p class="review-by"><strong>Luca F.</strong><time datetime="2023-03">mars 2023</time></p>
+          </li>
+        </ul>
+        <div class="rail-foot">
+          <a class="link-arrow" href="https://www.google.com/maps/place/?q=place_id:ChIJyw17w-0Ji0cRZpKwAtiNdow" target="_blank" rel="noopener">Lire tous les avis sur Google<svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a>
+          <div class="rail-btns">
+            <button class="rail-btn" type="button" data-rail="-1" aria-controls="rail" aria-label="Avis précédents"><svg class="i" aria-hidden="true"><use href="#i-left"/></svg></button>
+            <button class="rail-btn" type="button" data-rail="1" aria-controls="rail" aria-label="Avis suivants"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section class="section carte" id="carte" aria-labelledby="carte-title">
+    <div class="container carte-grid">
+      <div class="carte-intro" data-reveal>
+        <p class="eyebrow">Au camion</p>
+        <h2 id="carte-title">Le fromage coule, <span class="serif">le pain tient.</span></h2>
+        <p>L'Avalanche roule depuis 2022. Élodie y cuisine savoyard et fait maison, avec des <strong>produits frais de producteurs locaux</strong>. La signature&nbsp;: le sandwich à la raclette.</p>
+        <p>Le jeudi midi, le camion se gare <strong>place Pergaud, à La Motte-Servolex</strong>, de 11h30 à 14h.</p>
+        <a class="link-arrow" href="#horaires">Horaires et itinéraire<svg class="i" aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+      <div class="ardoise" data-reveal style="--d:.1s">
+        <p class="ardoise-title">Ce qui sort du camion</p>
+        <ul>
+          <li>
+            <span class="sig">La signature</span>
+            <h3>Sandwich à la raclette</h3>
+          </li>
+          <li>
+            <h3>Diot savoyard</h3>
+            <p>En sandwich, ou en plat avec crozets, polenta ou gratin de pommes de terre.</p>
+          </li>
+          <li>
+            <h3>Charcuterie et desserts</h3>
+          </li>
+        </ul>
+        <p class="ardoise-foot">Cuisine savoyarde maison, produits frais et locaux.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section events" id="evenements" aria-labelledby="events-title">
+    <div class="container">
+      <div class="events-head" data-reveal>
+        <p class="eyebrow">Privatisation</p>
+        <h2 id="events-title">Le camion chez vous, <span class="serif">de 30 à 180 invités.</span></h2>
+        <p class="lead">Mariage, anniversaire, vin d'honneur, brunch du lendemain. Le menu se compose avec Élodie&nbsp;: dans les avis, on croise des salades, des wraps, un plateau de charcuterie, un dîner avec fromage.</p>
+      </div>
+
+      <div class="events-grid">
+        <div class="price-card" data-reveal>
+          <p class="from">À partir de</p>
+          <p class="price">14&nbsp;€</p>
+          <p class="per">par personne</p>
+          <p class="note">À partir de 14 € par personne, repas et consommables inclus. Privatisation et déplacement en supplément.</p>
+        </div>
+        <dl class="facts" data-reveal style="--d:.1s">
+          <div><svg class="i" aria-hidden="true"><use href="#i-users"/></svg><dt>Invités</dt><dd>De 30 à 180 personnes</dd></div>
+          <div><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><dt>Service</dt><dd>Environ 3&nbsp;h de service</dd></div>
+          <div><svg class="i" aria-hidden="true"><use href="#i-leaf"/></svg><dt>Régimes</dt><dd>Options végétariennes, allergies et intolérances sur demande</dd></div>
+          <div><svg class="i" aria-hidden="true"><use href="#i-plug"/></svg><dt>Sur place</dt><dd>Arrivée 1&nbsp;h avant le service. Prévoyez une prise électrique.</dd></div>
+        </dl>
+      </div>
+
+      <ol class="steps">
+        <li data-reveal><div><h3>Vous appelez Élodie.</h3><p>La date, le lieu, le nombre d'invités.</p></div></li>
+        <li data-reveal style="--d:.08s"><div><h3>Le menu se construit ensemble.</h3><p>Végétarien, allergies, intolérances&nbsp;: sur demande.</p></div></li>
+        <li data-reveal style="--d:.16s"><div><h3>Le jour J, le camion arrive 1&nbsp;h avant.</h3><p>Une prise électrique, et le service commence.</p></div></li>
+      </ol>
+
+      <figure class="pull" data-reveal>
+        <blockquote><p>… elle a même respecté les horaires qu'on s'étaient donnés à la minute près.</p></blockquote>
+        <figcaption><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Caroline B., à propos de son mariage</figcaption>
+      </figure>
+
+      <div class="gallery-head">
+        <h3>Sur les buffets</h3>
+        <p>Wraps, verrines, crudités, feuilletés.</p>
+      </div>
+      <ul class="gallery" id="gallery">
+        <li data-reveal><button class="g-btn" type="button" aria-label="Agrandir : verrines de betterave et wraps de légumes sur présentoir en bois"><img src="assets/photos/photo-05.jpg" width="1067" height="1600" loading="lazy" decoding="async" alt="Verrines de betterave à la crème, cuillères en bois, et wraps de légumes sur un présentoir en bois à deux étages"></button></li>
+        <li data-reveal style="--d:.06s"><button class="g-btn" type="button" aria-label="Agrandir : plateau de crudités"><img src="assets/photos/photo-02.jpg" width="1067" height="1600" loading="lazy" decoding="async" alt="Plateau de crudités : carottes, radis, tomates cerises, concombre, et deux sauces blanches"></button></li>
+        <li data-reveal style="--d:.12s"><button class="g-btn" type="button" aria-label="Agrandir : roulés en brochettes"><img src="assets/photos/photo-01.jpg" width="1067" height="1600" loading="lazy" decoding="async" alt="Roulés de galette piqués de brochettes en bois, parsemés d'aneth, sur un plateau argenté"></button></li>
+        <li data-reveal style="--d:.18s"><button class="g-btn" type="button" aria-label="Agrandir : présentoir de verrines et chips de maïs"><img src="assets/photos/photo-03.jpg" width="1067" height="1600" loading="lazy" decoding="async" alt="Présentoir métallique à deux étages : verrines vertes et chips de maïs en haut, verrines rouges et wraps en bas"></button></li>
+        <li data-reveal style="--d:.24s"><button class="g-btn" type="button" aria-label="Agrandir : caisse de feuilletés"><img src="assets/photos/photo-04.jpg" width="1067" height="1600" loading="lazy" decoding="async" alt="Caisse en bois garnie de feuilletés dorés au fromage et aux olives"></button></li>
+      </ul>
+
+      <div class="events-cta">
+        <a class="btn btn-brand" href="tel:+33623242613"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Parler de votre date</a>
+        <a class="btn btn-line-light" href="https://wefoodtruck.fr/food-trucks/l-avalanche-food-truck-chambery-sandwich-evenement/" target="_blank" rel="noopener">Réserver via WeFoodTruck<svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS + MAP -->
+  <section class="section hours" id="horaires" aria-labelledby="hours-title">
+    <div class="container hours-grid">
+      <div class="hours-info" data-reveal>
+        <p class="eyebrow">Horaires et accès</p>
+        <h2 id="hours-title">Jeudi, 11h30. <span class="serif">Place Pergaud.</span></h2>
+        <p class="status status-lg" data-status>Jeudi 11h30 – 14h00</p>
+        <table class="hours-table">
+          <caption class="sr-only">Horaires d'ouverture du camion place Pergaud</caption>
+          <tbody>
+            <tr data-day="lundi"><th scope="row">Lundi</th><td>Fermé</td></tr>
+            <tr data-day="mardi"><th scope="row">Mardi</th><td>Fermé</td></tr>
+            <tr data-day="mercredi"><th scope="row">Mercredi</th><td>Fermé</td></tr>
+            <tr data-day="jeudi" class="is-open-day"><th scope="row">Jeudi</th><td>11h30 – 14h00</td></tr>
+            <tr data-day="vendredi"><th scope="row">Vendredi</th><td>Fermé</td></tr>
+            <tr data-day="samedi"><th scope="row">Samedi</th><td>Fermé</td></tr>
+            <tr data-day="dimanche"><th scope="row">Dimanche</th><td>Fermé</td></tr>
+          </tbody>
+        </table>
+        <ul class="access">
+          <li><svg class="i" aria-hidden="true"><use href="#i-chair"/></svg>Entrée accessible en fauteuil roulant</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-chair"/></svg>Parking accessible en fauteuil roulant</li>
+        </ul>
+      </div>
+
+      <div class="map-col" data-reveal style="--d:.1s">
+        <div class="map">
+          <p class="map-fallback"><a href="https://www.google.com/maps/place/?q=place_id:ChIJyw17w-0Ji0cRZpKwAtiNdow" target="_blank" rel="noopener">Ouvrir la carte dans Google Maps</a></p>
+          <iframe src="https://www.google.com/maps?q=L'Avalanche%20Foodtruck%2C%20Pl.%20Pergaud%2C%2073290%20La%20Motte-Servolex&amp;output=embed"
+                  title="Carte : L'Avalanche, place Pergaud, La Motte-Servolex" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="map-meta">
+          <address><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span>Place Pergaud<br>73290 La Motte-Servolex</span></address>
+          <div class="btn-row">
+            <a class="btn btn-ink" href="https://www.google.com/maps/dir/?api=1&amp;destination=L'Avalanche%20Foodtruck%2C%20Pl.%20Pergaud%2C%2073290%20La%20Motte-Servolex" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg>Itinéraire</a>
+            <a class="link-arrow" href="https://www.google.com/maps/place/?q=place_id:ChIJyw17w-0Ji0cRZpKwAtiNdow" target="_blank" rel="noopener">Voir sur Google Maps<svg class="i" aria-hidden="true"><use href="#i-out"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact" aria-labelledby="contact-title">
+    <div class="container contact-grid">
+      <div class="contact-main" data-reveal>
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">Une date en tête&nbsp;? <span class="serif">Parlez-en à Élodie.</span></h2>
+        <p>Un coup de fil suffit pour poser la date, le lieu et le nombre d'invités.</p>
+        <a class="big-phone" href="tel:+33623242613"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>06 23 24 26 13</a>
+        <ul class="contact-links">
+          <li><a href="sms:+33623242613?&amp;body=Bonjour%20%C3%89lodie%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site.%20J'aimerais%20en%20savoir%20plus%20sur%20L'Avalanche." data-sms><svg class="i" aria-hidden="true"><use href="#i-sms"/></svg><span>Envoyer un SMS</span></a></li>
+          <li><a href="mailto:avalanche.elodie@gmail.com?subject=Demande%20pour%20L'Avalanche"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><span>avalanche.elodie@gmail.com</span></a></li>
+          <li><a href="https://www.facebook.com/foodtruck.avalanche/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-fb"/></svg><span>L'Avalanche sur Facebook</span></a></li>
+        </ul>
+      </div>
+
+      <form class="composer" id="composer" data-reveal style="--d:.1s" aria-labelledby="composer-title" novalidate>
+        <h3 id="composer-title">Préparer votre demande</h3>
+        <p>Remplissez, puis choisissez SMS ou e-mail&nbsp;: le message s'ouvre dans votre application, rien n'est envoyé sans vous.</p>
+        <div class="field">
+          <label for="f-type">Occasion</label>
+          <select id="f-type" name="type">
+            <option>Mariage</option>
+            <option>Anniversaire</option>
+            <option>Vin d'honneur</option>
+            <option>Brunch</option>
+            <option>Autre événement</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-date">Date</label>
+            <input id="f-date" name="date" type="date">
+          </div>
+          <div class="field">
+            <label for="f-guests">Invités <span class="opt">(30-180)</span></label>
+            <input id="f-guests" name="guests" type="number" inputmode="numeric" min="1">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-place">Lieu <span class="opt">(commune)</span></label>
+          <input id="f-place" name="place" type="text" autocomplete="address-level2">
+        </div>
+        <div class="field">
+          <label for="f-msg">Vos envies <span class="opt">(menu, régimes particuliers…)</span></label>
+          <textarea id="f-msg" name="msg" rows="3"></textarea>
+        </div>
+        <div class="composer-actions">
+          <a class="btn btn-ink" id="send-sms" href="sms:+33623242613?&amp;body=Bonjour%20%C3%89lodie%2C%20je%20souhaite%20organiser%20un%20%C3%A9v%C3%A9nement%20avec%20L'Avalanche."><svg class="i" aria-hidden="true"><use href="#i-sms"/></svg>Par SMS</a>
+          <a class="btn btn-line" id="send-mail" href="mailto:avalanche.elodie@gmail.com?subject=%C3%89v%C3%A9nement%20avec%20L'Avalanche"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Par e-mail</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="drip" aria-hidden="true"></div>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a class="wordmark" href="#main" aria-label="L'Avalanche, retour en haut de page"><svg aria-hidden="true"><use href="#mono"/></svg><span>L'Avalanche</span></a>
+      <p>Food truck de spécialités savoyardes, depuis 2022.</p>
+      <div class="social">
+        <a href="https://www.facebook.com/foodtruck.avalanche/" target="_blank" rel="noopener" aria-label="L'Avalanche sur Facebook"><svg class="i" aria-hidden="true"><use href="#i-fb"/></svg></a>
+        <a href="tel:+33623242613" aria-label="Appeler L'Avalanche"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></a>
+        <a href="mailto:avalanche.elodie@gmail.com" aria-label="Écrire à L'Avalanche"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h3>Le camion</h3>
+        <address>Place Pergaud<br>73290 La Motte-Servolex</address>
+        <p>Jeudi, 11h30 – 14h00</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="tel:+33623242613">06 23 24 26 13</a></li>
+          <li><a href="mailto:avalanche.elodie@gmail.com">avalanche.elodie@gmail.com</a></li>
+          <li><a href="https://wefoodtruck.fr/food-trucks/l-avalanche-food-truck-chambery-sandwich-evenement/" target="_blank" rel="noopener">Fiche WeFoodTruck</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Sur la page</h3>
+        <ul>
+          <li><a href="#avis">Avis</a></li>
+          <li><a href="#carte">La carte</a></li>
+          <li><a href="#evenements">Événements</a></li>
+          <li><a href="#horaires">Horaires et accès</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-base">
+    <p>© <span id="year"></span> L'Avalanche Foodtruck · Chambéry</p>
+    <p>Place Pergaud, La Motte-Servolex</p>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Actions rapides">
+  <a href="tel:+33623242613"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Appeler</a>
+  <a href="sms:+33623242613?&amp;body=Bonjour%20%C3%89lodie%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site.%20J'aimerais%20en%20savoir%20plus%20sur%20L'Avalanche."><svg class="i" aria-hidden="true"><use href="#i-sms"/></svg>SMS</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=L'Avalanche%20Foodtruck%2C%20Pl.%20Pergaud%2C%2073290%20La%20Motte-Servolex" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg>Itinéraire</a>
+</nav>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photos des buffets">
+  <figure class="lb-figure">
+    <img id="lb-img" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+  <button class="lb-btn lb-close" type="button" aria-label="Fermer"><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Photo précédente"><svg class="i" aria-hidden="true"><use href="#i-left"/></svg></button>
+  <button class="lb-btn lb-next" type="button" aria-label="Photo suivante"><svg class="i" aria-hidden="true"><use href="#i-right"/></svg></button>
+</dialog>
+
+<script>
+(() => {
+  const d = document, root = d.documentElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, c = d) => c.querySelector(s), $$ = (s, c = d) => [...c.querySelectorAll(s)];
+
+  /* Reveal: mark what's already on screen first, so nothing flashes. */
+  const rev = $$('[data-reveal]');
+  rev.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('is-in'); });
+  root.classList.add('js');
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    rev.forEach(el => el.classList.contains('is-in') || io.observe(el));
+  } else rev.forEach(el => el.classList.add('is-in'));
+
+  /* Year */
+  const y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+
+  /* Header state */
+  const header = $('.site-header'), band = $('.hero-band');
+  const onScroll = () => header.classList.toggle('is-stuck', scrollY > band.offsetHeight - header.offsetHeight);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* Menu */
+  const btn = $('.menu-toggle'), nav = $('#site-nav');
+  const setMenu = open => {
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    nav.classList.toggle('is-open', open);
+    root.style.overflow = open ? 'hidden' : '';
+    if (open) header.classList.add('is-stuck'); else onScroll();
+  };
+  btn.addEventListener('click', () => setMenu(btn.getAttribute('aria-expanded') !== 'true'));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  d.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setMenu(false); btn.focus(); }
+  });
+  matchMedia('(min-width: 960px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  /* Hours + live status (Europe/Paris) */
+  const HOURS = { lundi: 'Fermé', mardi: 'Fermé', mercredi: 'Fermé', jeudi: '11:30–14:00', vendredi: 'Fermé', samedi: 'Fermé', dimanche: 'Fermé' };
+  const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+  const parse = s => {
+    s = String(s || '').toLowerCase();
+    if (!s || /ferm/.test(s)) return [];
+    if (/24\s*h|24\/24/.test(s)) return [[0, 1440]];
+    return s.split(/[,;]|\bet\b/).map(r => {
+      const m = r.match(/(\d{1,2})\s*[:h.]\s*(\d{2})?\s*[–—-]\s*(\d{1,2})\s*[:h.]?\s*(\d{2})?/);
+      if (!m) return null;
+      const a = +m[1] * 60 + (+m[2] || 0); let b = +m[3] * 60 + (+m[4] || 0);
+      if (b <= a) b += 1440;
+      return [a, b];
+    }).filter(Boolean).sort((p, q) => p[0] - q[0]);
+  };
+  const fmt = m => { m %= 1440; const h = Math.floor(m / 60), mm = m % 60; return h + 'h' + (mm ? String(mm).padStart(2, '0') : ''); };
+  const nowParis = () => {
+    try {
+      const p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+      const g = t => (p.find(x => x.type === t) || {}).value;
+      const wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(g('weekday'));
+      if (wd > -1) return { day: wd, t: (+g('hour') % 24) * 60 + +g('minute') };
+    } catch (e) {}
+    const n = new Date(); return { day: n.getDay(), t: n.getHours() * 60 + n.getMinutes() };
+  };
+  const R = DAYS.map(k => parse(HOURS[k]));
+  const status = () => {
+    const { day, t } = nowParis();
+    const prev = (day + 6) % 7;
+    let open = R[day].find(([a, b]) => t >= a && t < b);
+    if (!open) { const o = R[prev].find(([a, b]) => b > 1440 && t + 1440 < b); if (o) open = [o[0], o[1] - 1440]; }
+    if (open) {
+      const left = open[1] - t;
+      return { open: true, text: open[1] - open[0] >= 1440 ? 'Ouvert maintenant · 24h/24' : 'Ouvert maintenant · jusqu\'à ' + fmt(open[1]) + (left <= 30 ? ' (dernières minutes)' : '') };
+    }
+    for (let k = 0; k < 8; k++) {
+      const di = (day + k) % 7, r = R[di].find(([a]) => k > 0 || a > t);
+      if (r) {
+        const when = k === 0 ? 'aujourd\'hui à ' : k === 1 ? 'demain à ' : DAYS[di] + ' à ';
+        return { open: false, text: 'Fermé · ouvre ' + when + fmt(r[0]) };
+      }
+    }
+    return { open: false, text: 'Fermé' };
+  };
+  const paint = () => {
+    const s = status(), today = DAYS[nowParis().day];
+    $$('[data-status]').forEach(el => { el.textContent = s.text; el.classList.toggle('is-open', s.open); });
+    $$('.hours-table tr').forEach(tr => {
+      const on = tr.dataset.day === today;
+      tr.classList.toggle('is-today', on);
+      on ? tr.setAttribute('aria-current', 'date') : tr.removeAttribute('aria-current');
+      const th = tr.querySelector('th'), tag = th.querySelector('.today-tag');
+      if (on && !tag) th.insertAdjacentHTML('beforeend', '<span class="today-tag">· aujourd\'hui</span>');
+      if (!on && tag) tag.remove();
+    });
+  };
+  paint(); setInterval(paint, 60000);
+
+  /* Count-up */
+  const cnt = $('[data-count]');
+  if (cnt && 'IntersectionObserver' in window && !reduce) {
+    const end = +cnt.dataset.count;
+    const co = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return; co.disconnect();
+      const t0 = performance.now(), dur = 1100;
+      const step = now => {
+        const k = Math.min(1, (now - t0) / dur);
+        cnt.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) requestAnimationFrame(step);
+      };
+      cnt.textContent = '0'; requestAnimationFrame(step);
+    }, { threshold: .6 });
+    co.observe(cnt);
+  }
+
+  /* Review rail buttons */
+  const rail = $('#rail');
+  const rb = $$('[data-rail]');
+  const railState = () => {
+    const max = rail.scrollWidth - rail.clientWidth - 4;
+    rb[0].disabled = rail.scrollLeft <= 4; rb[1].disabled = rail.scrollLeft >= max;
+  };
+  rb.forEach(b => b.addEventListener('click', () => {
+    const card = rail.querySelector('.review');
+    rail.scrollBy({ left: +b.dataset.rail * (card.offsetWidth + 16), behavior: reduce ? 'auto' : 'smooth' });
+  }));
+  rail.addEventListener('scroll', railState, { passive: true }); railState();
+
+  /* Lightbox */
+  const dlg = $('#lightbox'), lbImg = $('#lb-img'), lbCap = $('#lb-cap');
+  const shots = $$('#gallery .g-btn');
+  let cur = 0, opener = null;
+  const show = i => {
+    cur = (i + shots.length) % shots.length;
+    const im = shots[cur].querySelector('img');
+    lbImg.src = im.getAttribute('src'); lbImg.alt = im.alt;
+    lbCap.textContent = im.alt + ' · ' + (cur + 1) + ' / ' + shots.length;
+  };
+  if (dlg && dlg.showModal) {
+    shots.forEach((b, i) => b.addEventListener('click', () => { opener = b; show(i); dlg.showModal(); }));
+    $('.lb-close').addEventListener('click', () => dlg.close());
+    $('.lb-prev').addEventListener('click', () => show(cur - 1));
+    $('.lb-next').addEventListener('click', () => show(cur + 1));
+    dlg.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', () => opener && opener.focus());
+  }
+
+  /* Composer: builds prefilled SMS / e-mail links, never posts anything */
+  const form = $('#composer');
+  const enc = encodeURIComponent;
+  const build = () => {
+    const v = n => (form.elements[n].value || '').trim();
+    let date = v('date');
+    if (date) { const [Y, M, D] = date.split('-'); date = D + '/' + M + '/' + Y; }
+    const lines = ['Bonjour Élodie,', 'je souhaite organiser un événement avec L\'Avalanche.', 'Occasion : ' + v('type')];
+    if (date) lines.push('Date : ' + date);
+    if (v('guests')) lines.push('Invités : ' + v('guests'));
+    if (v('place')) lines.push('Lieu : ' + v('place'));
+    if (v('msg')) lines.push('', v('msg'));
+    lines.push('', 'Merci.');
+    const body = lines.join('\n');
+    $('#send-sms').href = 'sms:+33623242613?&body=' + enc(body);
+    $('#send-mail').href = 'mailto:avalanche.elodie@gmail.com?subject=' + enc(v('type') + ' avec L\'Avalanche' + (date ? ' · ' + date : '')) + '&body=' + enc(body);
+  };
+  form.addEventListener('input', build); form.addEventListener('change', build);
+  form.addEventListener('submit', e => e.preventDefault());
+  build();
+})();
+</script>
+<!--sf:preview--><div style="padding:18px 16px;font:13px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center;background:#0f0f10;color:#a3a3a8">Aperçu réalisé par Aymen Jallouli pour L'Avalanche Foodtruck : ce site n'est pas encore le site officiel de l'établissement.</div><!--/sf:preview-->
+<!--sf:track--><script>(function(){try{var q=new URLSearchParams(location.search),r=q.get('r')||sessionStorage.getItem('sf_r');if(!r)return;sessionStorage.setItem('sf_r',r);navigator.sendBeacon("https://track.aymenjallouli.dev/t"+'?r='+encodeURIComponent(r)+'&p='+encodeURIComponent(location.pathname));}catch(e){}})();</script><!--/sf:track-->
+</body>
+</html>
